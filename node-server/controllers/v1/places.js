@@ -1,15 +1,6 @@
-import { con } from '../../database.js';
+import dataPlaces from '../../data/v1/places.js';
 
 export const getPlaces = async (req, res) => {
-    const [results] = await con.query('SELECT id, name FROM Location'); 
+    const results = await dataPlaces.getPlaces();
     res.send(results);
-
-    // con.connect(function(err) {
-    //     if (err) throw err;
-    //     con.query("SELECT id, name FROM Location", function (err, result, fields) {
-    //         if (err) throw err;
-    //         res.send(result);
-    //         con.end();
-    //     });
-    // });
 }
