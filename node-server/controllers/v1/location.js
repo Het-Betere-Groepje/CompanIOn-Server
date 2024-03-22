@@ -13,3 +13,8 @@ export const putLocation = (req, res) => {
     dataLocation.putUserLocation(id, locationId);
     res.send('Location updated');
 }
+
+export const getLocations = async (req, res) => {
+    const result = await dataLocation.getLocations();
+    res.send(result);
+}

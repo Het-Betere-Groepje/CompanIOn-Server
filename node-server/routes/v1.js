@@ -10,4 +10,9 @@ const router = express.Router();
 router.use('/location', locationRoutes);
 router.use('/places', placesRoutes);
 
+router.get('/', function (req, res, next) {
+    console.log("Router Working");
+    res.send("router working");
+})
+
 export default router;

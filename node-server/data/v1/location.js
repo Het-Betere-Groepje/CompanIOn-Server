@@ -15,7 +15,12 @@ const putUserLocation = async (id, locationId) => {
     }
 }
 
+const getLocations = async () => {
+    const [results] = await con.query('select id, name from Location')
+    return results;
+}
 export default {
     getUserLocation,
-    putUserLocation
+    putUserLocation,
+    getLocations
 }
