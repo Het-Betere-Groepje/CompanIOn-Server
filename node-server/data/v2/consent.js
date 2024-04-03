@@ -7,5 +7,3 @@ const getConsentLevels = async () => {
 export default {
     getConsentLevels
 }
-
-//localhost:5000/v2/consent/
