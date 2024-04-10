@@ -5,7 +5,7 @@ const getUserLocation = async (id) => {
     return results;
 }
 
-const getUserWithLocation = async (name) => {
+const getUserLocationByName = async (name) => {
     const [result] = await con.query('SELECT Location.name FROM User JOIN UserLocation ON UserLocation.user_id = User.id JOIN Location ON Location.id = UserLocation.location_id WHERE User.name = ?', [name]);
     return results;
 }
@@ -34,7 +34,7 @@ const patchUserConsent = async (id, consentId) => {
 
 export default {
     getUserLocation,
-    getUserWithLocation,
+    getUserLocationByName,
     putUserLocation,
     getUserConsent,
     patchUserConsent
