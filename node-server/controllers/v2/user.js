@@ -7,6 +7,12 @@ export const getUserLocation = async (req, res) => {
     res.send(results);
 }
 
+export const getUserWithLocation = async (req, res) => {
+    const { name } = req.params;
+    const results = await dataUser.getUserWithLocation(name);
+    res.send(results);
+}
+
 // update the location of a user
 export const putUserLocation = (req, res) => {
     const { id, locationId } = req.body;
