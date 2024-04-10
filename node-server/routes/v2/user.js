@@ -5,7 +5,7 @@ import { getUserLocation, putUserLocation, getUserConsent, patchUserConsent, get
 const router = express.Router();
 
 router.get('/location/:id', getUserLocation);
-router.get(getUsers);
+router.get('', getUsers);
 router.get('/userWithLocation/:name', getUserLocationByName);
 router.put('/location', putUserLocation);
 router.get('/consent/:id', getUserConsent);
