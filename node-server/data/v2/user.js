@@ -5,6 +5,11 @@ const getUserLocation = async (id) => {
     return results;
 }
 
+const getUserLocationByName = async (name) => {
+    const [result] = await con.query('SELECT Location.name FROM User JOIN UserLocation ON UserLocation.user_id = User.id JOIN Location ON Location.id = UserLocation.location_id WHERE User.name = ?', [name]);
+    return results;
+}
+
 const putUserLocation = async (id, locationId) => {
     let results = await con.query('UPDATE UserLocation SET location_id = ? WHERE user_id = ?', [locationId, id]);
     if (results[0].affectedRows === 0) {
@@ -29,6 +34,7 @@ const patchUserConsent = async (id, consentId) => {
 
 export default {
     getUserLocation,
+    getUserLocationByName,
     putUserLocation,
     getUserConsent,
     patchUserConsent
