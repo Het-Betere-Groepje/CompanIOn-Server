@@ -9,7 +9,7 @@ const getUsers = async () => {
     return results;
 }
 const getUserLocationByName = async (name) => {
-    const [result] = await con.query('SELECT Location.name FROM User JOIN UserLocation ON UserLocation.user_id = User.id JOIN Location ON Location.id = UserLocation.location_id WHERE User.name = ?', [name]);
+    const [results] = await con.query('SELECT Location.name FROM User JOIN UserLocation ON UserLocation.user_id = User.id JOIN Location ON Location.id = UserLocation.location_id WHERE User.name = ?', [name]);
     return results;
 }
 
