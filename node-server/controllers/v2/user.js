@@ -19,14 +19,14 @@ export const getUsers = async (req, res) => {
 
 export const getUserLocationById = async (req, res) => {
     const { id } = req.params;
-    const results = await dataUser.getUserLocationById(id);
+    const userConsent = await dataUser.getUserConsent(id);
 
-    
-    // if user id has the right constent levels then return location
-    
-    // else send error message about which level he has
-    
-    res.send(results);
+    if (userConsent[0].level === 0) {
+        res.send('Gebruiker geeft geen toestemming voor het delen van locatiegegevens.');
+    } else {
+        const results = await dataUser.getUserLocationById(id);
+        res.send(results);
+    }
 }
 
 // update the location of a user
