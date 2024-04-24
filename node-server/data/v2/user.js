@@ -8,8 +8,13 @@ const getUsers = async () => {
     const [results] = await con.query('SELECT * FROM User');
     return results;
 }
-const getUserLocationByName = async (name) => {
-    const [results] = await con.query('SELECT Location.name FROM User JOIN UserLocation ON UserLocation.user_id = User.id JOIN Location ON Location.id = UserLocation.location_id WHERE User.name = ?', [name]);
+// const getUserLocationByName = async (name) => {
+//     const [results] = await con.query('SELECT Location.name FROM User JOIN UserLocation ON UserLocation.user_id = User.id JOIN Location ON Location.id = UserLocation.location_id WHERE User.name = ?', [name]);
+//     return results;
+// }
+
+const getUserLocationById = async (id) => {
+    const [results] = await con.query('SELECT Location.name FROM User JOIN UserLocation ON UserLocation.user_id = User.id JOIN Location ON Location.id = UserLocation.location_id WHERE User.id = ?', [id]);
     return results;
 }
 
@@ -38,7 +43,7 @@ const patchUserConsent = async (id, consentId) => {
 export default {
     getUserLocation,
     getUsers,
-    getUserLocationByName,
+    getUserLocationById,
     putUserLocation,
     getUserConsent,
     patchUserConsent

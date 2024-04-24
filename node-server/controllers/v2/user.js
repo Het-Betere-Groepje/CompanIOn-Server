@@ -11,9 +11,15 @@ export const getUsers = async (req, res) => {
     res.send(results);
 }
 
-export const getUserLocationByName = async (req, res) => {
+// export const getUserLocationByName = async (req, res) => {
+//     const { name } = req.params;
+//     const results = await dataUser.getUserLocationByName(name);
+//     res.send(results);
+// }
+
+export const getUserLocationById = async (req, res) => {
     const { name } = req.params;
-    const results = await dataUser.getUserLocationByName(name);
+    const results = await dataUser.getUserLocationById(name);
     res.send(results);
 }
 
