@@ -18,8 +18,14 @@ export const getUsers = async (req, res) => {
 // }
 
 export const getUserLocationById = async (req, res) => {
-    const { name } = req.params;
-    const results = await dataUser.getUserLocationById(name);
+    const { id } = req.params;
+    const results = await dataUser.getUserLocationById(id);
+
+    
+    // if user id has the right constent levels then return location
+    
+    // else send error message about which level he has
+    
     res.send(results);
 }
 
