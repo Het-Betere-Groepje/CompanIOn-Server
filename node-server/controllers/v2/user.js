@@ -22,7 +22,7 @@ export const getUserLocationById = async (req, res) => {
     const userConsent = await dataUser.getUserConsent(id);
 
     if (userConsent[0].level === 0) {
-        res.status(400).send('De gebruiker heeft geen toestemming gegeven om zijn locatie te delen.');
+        res.status(400).send(new Error('De gebruiker heeft geen toestemming gegeven om zijn locatie te delen'));
     } else {
         const results = await dataUser.getUserLocationById(id);
         res.send(results);
