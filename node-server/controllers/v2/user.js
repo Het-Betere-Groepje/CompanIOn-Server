@@ -11,10 +11,22 @@ export const getUsers = async (req, res) => {
     res.send(results);
 }
 
-export const getUserLocationByName = async (req, res) => {
-    const { name } = req.params;
-    const results = await dataUser.getUserLocationByName(name);
-    res.send(results);
+// export const getUserLocationByName = async (req, res) => {
+//     const { name } = req.params;
+//     const results = await dataUser.getUserLocationByName(name);
+//     res.send(results);
+// }
+
+export const getUserLocationById = async (req, res) => {
+    const { id } = req.params;
+    const userConsent = await dataUser.getUserConsent(id);
+
+    if (userConsent[0].level === 0) {
+        res.send('De gebruiker heeft geen toestemming gegeven om zijn locatie te delen');
+    } else {
+        const results = await dataUser.getUserLocationById(id);
+        res.send(results);
+    }
 }
 
 // update the location of a user
