@@ -29,7 +29,7 @@ const putUserLocation = async (id, locationId) => {
 }
 
 const getUserConsent = async (id) => {
-    const [results] = await con.query('SELECT Consent.id, Consent.level, Consent.beschrijving FROM User RIGHT JOIN Consent ON User.consent_id = Consent.id WHERE User.id = ?', [id]);
+    const [results] = await con.query('SELECT Consent.id, Consent.level, Consent.description FROM User RIGHT JOIN Consent ON User.consent_id = Consent.id WHERE User.id = ?', [id]);
     return results;
 }
 

@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/location/:id', getUserLocation);
 router.get('', getUsers);
-router.get('/userWithLocation/:name', getUserLocationById);
+router.get('/userWithLocation/:id', getUserLocationById);
 router.put('/location', putUserLocation);
 router.get('/consent/:id', getUserConsent);
 router.patch('/consent', patchUserConsent);
