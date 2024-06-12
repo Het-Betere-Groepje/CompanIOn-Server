@@ -1,8 +1,12 @@
 import mysql from 'mysql2/promise';
+import dotenv from "dotenv"
+
+dotenv.config()
+
 
 export const con = await mysql.createConnection({
-  host: "web0155.zxcs.nl",
-  user: "u156573p149336_Io",
-  password: "ED(**0b@C,1o@=qa'2p_b!5>}",
-  database: "u156573p149336_Io"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
